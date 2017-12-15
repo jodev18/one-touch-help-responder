@@ -16,5 +16,19 @@ namespace OTC_Handler
         {
             InitializeComponent();
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdMale.Checked)
+            {
+                rdFemale.Checked = false;
+            }
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
