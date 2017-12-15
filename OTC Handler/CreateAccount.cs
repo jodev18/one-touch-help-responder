@@ -57,6 +57,8 @@ namespace OTC_Handler
                 nName.Length > 0 && nContact.Length > 0 && nAddress.Length > 0)
             {
 
+
+
             }
             else
             {
