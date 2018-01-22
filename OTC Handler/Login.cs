@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,11 +22,61 @@ namespace OTC_Handler
         {
             string lUsername = tbUsername.Text;
             string lPassword = mtbPassword.Text;
+           
 
             if(lUsername.Length > 0 && lPassword.Length > 0)
             {
                 if(lUsername.Length >= 8 && lPassword.Length >= 8)
                 {
+                    DatabaseManager dbman = new DatabaseManager();
+
+                    dbman.DatabaseName = "otc_help";
+
+                    if (dbman.IsConnect())
+                    {
+                        string query = "SELECT responder_username,responder_password " +
+                            "from otc_responder where responder_username=@val1 AND "
+                            + " responder_password=@val2";
+
+                        var cmd = new MySqlCommand(query, dbman.Connection);
+
+                        var auth = SHA512(lPassword);
+
+                        cmd.Parameters.AddWithValue("@val1", lUsername);
+                        cmd.Parameters.AddWithValue("@val2", auth);
+
+                        cmd.Prepare();
+
+                        var reader = cmd.ExecuteReader();
+
+                        int retcount = 0;
+                                                
+                        //Because there's no getCount()....
+                        while (reader.Read())
+                        {
+                            retcount++;
+                        }
+
+                        if(retcount > 0)
+                        {
+                            MessageBox.Show("Login successful.");
+                            this.Hide();
+                            MainMenu mn = new MainMenu();
+                            mn.ShowDialog();
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Incorrect login information.");
+                        }
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error", "Database is offline.");
+                    }
+                   
 
                 }
                 else
@@ -44,17 +95,23 @@ namespace OTC_Handler
         {
             CreateAccount nResponder = new CreateAccount();
             nResponder.ShowDialog();
-
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private string SHA512(string input)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo);
-            
-            if(dialogResult == DialogResult.Yes)
+            var bytes = System.Text.Encoding.UTF8.GetBytes(input);
+            using (var hash = System.Security.Cryptography.SHA512.Create())
             {
-                Close();
+                var hashedInputBytes = hash.ComputeHash(bytes);
+
+                // Convert to text
+                // StringBuilder Capacity is 128, because 512 bits / 8 bits in byte * 2 symbols for byte 
+                var hashedInputStringBuilder = new System.Text.StringBuilder(128);
+                foreach (var b in hashedInputBytes)
+                    hashedInputStringBuilder.Append(b.ToString("X2"));
+                return hashedInputStringBuilder.ToString();
             }
         }
+
     }
 }

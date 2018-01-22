@@ -49,7 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(101, 9);
+            this.label1.Location = new System.Drawing.Point(98, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 24);
@@ -59,18 +59,19 @@
             // btnRespBack
             // 
             this.btnRespBack.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRespBack.Location = new System.Drawing.Point(26, 318);
+            this.btnRespBack.Location = new System.Drawing.Point(26, 313);
             this.btnRespBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnRespBack.Name = "btnRespBack";
             this.btnRespBack.Size = new System.Drawing.Size(140, 49);
             this.btnRespBack.TabIndex = 1;
             this.btnRespBack.Text = "<< Back";
             this.btnRespBack.UseVisualStyleBackColor = true;
+            this.btnRespBack.Click += new System.EventHandler(this.btnRespBack_Click);
             // 
             // btnSaveResponderAcct
             // 
             this.btnSaveResponderAcct.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveResponderAcct.Location = new System.Drawing.Point(226, 318);
+            this.btnSaveResponderAcct.Location = new System.Drawing.Point(222, 313);
             this.btnSaveResponderAcct.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveResponderAcct.Name = "btnSaveResponderAcct";
             this.btnSaveResponderAcct.Size = new System.Drawing.Size(151, 49);
@@ -138,6 +139,7 @@
             this.mtbNewPassword.Location = new System.Drawing.Point(165, 80);
             this.mtbNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.mtbNewPassword.Name = "mtbNewPassword";
+            this.mtbNewPassword.PasswordChar = '*';
             this.mtbNewPassword.Size = new System.Drawing.Size(208, 26);
             this.mtbNewPassword.TabIndex = 9;
             this.mtbNewPassword.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
@@ -167,6 +169,7 @@
             this.mtbConfNewPassword.Location = new System.Drawing.Point(165, 115);
             this.mtbConfNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.mtbConfNewPassword.Name = "mtbConfNewPassword";
+            this.mtbConfNewPassword.PasswordChar = '*';
             this.mtbConfNewPassword.Size = new System.Drawing.Size(208, 26);
             this.mtbConfNewPassword.TabIndex = 14;
             // 

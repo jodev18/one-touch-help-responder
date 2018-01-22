@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="otc_helpDataSet" targetNamespace="http://tempuri.org/otc_helpDataSet.xsd" xmlns:mstns="http://tempuri.org/otc_helpDataSet.xsd" xmlns="http://tempuri.org/otc_helpDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="otc_helper_handler" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="otc_helper_handler (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OTC_Handler.Properties.Settings.GlobalReference.Default.otc_helper_handler" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="otc_citizenTableAdapter" GeneratorDataComponentClassName="otc_citizenTableAdapter" Name="otc_citizen" UserDataComponentName="otc_citizenTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="otc_helper_handler (Settings)" DbObjectName="otc_help.otc_citizen" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `cit_id`, `cit_fn`, `cit_ln`, `cit_gender`, `cit_age`, `cit_dob`, `cit_phone`, `cit_civil_stat`, `cit_address`, `emg_contact_name`, `emg_contact_no`, `emg_contact_addr` FROM `otc_citizen`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="otc_helpDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="otc_helpDataSet" msprop:Generator_UserDSName="otc_helpDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="otc_citizen" msprop:Generator_TableClassName="otc_citizenDataTable" msprop:Generator_TableVarName="tableotc_citizen" msprop:Generator_TablePropName="otc_citizen" msprop:Generator_RowDeletingName="otc_citizenRowDeleting" msprop:Generator_RowChangingName="otc_citizenRowChanging" msprop:Generator_RowEvHandlerName="otc_citizenRowChangeEventHandler" msprop:Generator_RowDeletedName="otc_citizenRowDeleted" msprop:Generator_UserTableName="otc_citizen" msprop:Generator_RowChangedName="otc_citizenRowChanged" msprop:Generator_RowEvArgName="otc_citizenRowChangeEvent" msprop:Generator_RowClassName="otc_citizenRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
